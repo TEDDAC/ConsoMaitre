@@ -1,5 +1,6 @@
 package com.application.consomaitre;
 
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,7 +27,8 @@ public class PleinAdaptater extends RecyclerView.Adapter<PleinAdaptater.ViewHold
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    Intent intent = new Intent(view.getContext(), PleinEditActivity.class);
+                    view.getContext().startActivity(intent);
                 }
             });
 

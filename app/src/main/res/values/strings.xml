@@ -1,5 +1,11 @@
 <resources>
+    <string name="delete">Supprimer</string>
+
     <string name="app_name">ConsoMaitre</string>
     <string name="settings">Paramètres</string>
     <string name="my_vehicules">Mes véhicules</string>
+    <string name="edit_plein">Modifier le plein</string>
+    <string name="quantite">Quantité</string>
+    <string name="kilometrage">Kilometrage</string>
+    <string name="price_unit">Prix au litre</string>
 </resources>
