@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/kilométrage"
+        android:id="@+id/kilometrage"
         android:layout_width="170dp"
         android:layout_height="63dp"
         android:layout_marginStart="16dp"
@@ -21,10 +21,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="km"
-        app:layout_constraintEnd_toEndOf="@+id/kilométrage"
+        app:layout_constraintEnd_toEndOf="@+id/kilometrage"
         app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="@+id/kilométrage"
-        app:layout_constraintTop_toBottomOf="@+id/kilométrage" />
+        app:layout_constraintStart_toStartOf="@+id/kilometrage"
+        app:layout_constraintTop_toBottomOf="@+id/kilometrage" />
 
     <TextView
         android:id="@+id/prix_mensuel"
@@ -65,5 +65,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vehicule_selector" />
+
+    <Button
+        android:id="@+id/settings_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="settings"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

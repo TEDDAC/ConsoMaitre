@@ -2,7 +2,7 @@ package model;
 
 import androidx.annotation.NonNull;
 
-public class Plein {
+public class Plein implements Comparable {
     private int kilometrage;
     private float prix; //Total
     private float quantite;
@@ -40,6 +40,13 @@ public class Plein {
     @NonNull
     @Override
     public String toString() {
-        return "Kilometrage: " + kilometrage +"\tPrix: " + prix + "\tQuantite: " + quantite;
+        return "Kilometrage: " + kilometrage +"\tPrix: " + prix + "€/L\tQuantite: " + quantite;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        if(o.getClass() != getClass());
+        Plein other = (Plein)o;
+        return Integer.compare(getKilometrage(),other.getKilometrage());
     }
 }

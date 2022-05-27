@@ -23,7 +23,12 @@ public class PleinAdaptater extends RecyclerView.Adapter<PleinAdaptater.ViewHold
 
         public ViewHolder(View view) {
             super(view);
-            // Define click listener for the ViewHolder's View
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
 
             textView = (TextView)view.findViewById(R.id.textView);
         }

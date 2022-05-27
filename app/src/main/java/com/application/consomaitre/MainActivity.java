@@ -10,7 +10,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationBarView;
 
@@ -45,6 +47,8 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 current = manager.getVehicules().get(position);
                 pleinAdaptater.onCurrentVehiculeChanged(current);
+                TextView textView = (TextView)findViewById(R.id.kilometrage);
+                textView.setText(Integer.toString(current.getKilometrage()));
                 Log.d("MainActivity","Current: " + current.toString());
             }
 
@@ -61,5 +65,14 @@ public class MainActivity extends AppCompatActivity {
         pleinAdaptater = new PleinAdaptater(current.getPleins());
         pleinList.setAdapter(pleinAdaptater);
         pleinList.setVisibility(View.VISIBLE);
+
+        Button settingsBtn = (Button)findViewById(R.id.settings_btn);
+        settingsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), SettingActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

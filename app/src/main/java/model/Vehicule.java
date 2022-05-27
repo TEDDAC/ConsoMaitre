@@ -1,8 +1,13 @@
 package model;
 
+import android.util.Log;
+
 import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Vehicule {
     private String nom;
@@ -39,5 +44,9 @@ public class Vehicule {
             string = string + "\t" + current + "\n";
         }
         return string;
+    }
+
+    public int getKilometrage(){
+        return Collections.max(pleins).getKilometrage();
     }
 }
