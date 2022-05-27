@@ -11,7 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 
+import model.Manager;
 import model.Plein;
+import model.Vehicule;
 
 public class PleinAdaptater extends RecyclerView.Adapter<PleinAdaptater.ViewHolder> {
     private ArrayList<Plein> localDataSet;
@@ -54,5 +56,10 @@ public class PleinAdaptater extends RecyclerView.Adapter<PleinAdaptater.ViewHold
     @Override
     public int getItemCount(){
         return localDataSet.size();
+    }
+
+    public void onCurrentVehiculeChanged(Vehicule current){
+        localDataSet = current.getPleins();
+        notifyDataSetChanged();
     }
 }

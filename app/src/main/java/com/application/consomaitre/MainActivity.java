@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -19,6 +20,7 @@ import model.*;
 
 public class MainActivity extends AppCompatActivity {
     private Vehicule current;
+    private PleinAdaptater pleinAdaptater;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,11 +44,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
                 current = manager.getVehicules().get(position);
+                pleinAdaptater.onCurrentVehiculeChanged(current);
                 Log.d("MainActivity","Current: " + current.toString());
-                RecyclerView pleinList = (RecyclerView)findViewById(R.id.plein_list);
-                pleinList.setLayoutManager(new LinearLayoutManager(view.getContext()));
-                pleinList.setAdapter(new PleinAdaptater(current.getPleins()));
-                pleinList.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -57,5 +56,10 @@ public class MainActivity extends AppCompatActivity {
 
         current = manager.getVehicules().get(0);
 
+        RecyclerView pleinList = (RecyclerView)findViewById(R.id.plein_list);
+        pleinList.setLayoutManager(new LinearLayoutManager(this));
+        pleinAdaptater = new PleinAdaptater(current.getPleins());
+        pleinList.setAdapter(pleinAdaptater);
+        pleinList.setVisibility(View.VISIBLE);
     }
 }

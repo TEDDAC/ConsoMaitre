@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ConsoMaitre</string>
+    <string name="settings">Paramètres</string>
 </resources>
