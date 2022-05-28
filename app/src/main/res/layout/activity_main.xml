@@ -11,39 +11,39 @@
         android:layout_width="170dp"
         android:layout_height="63dp"
         android:layout_marginStart="16dp"
-        android:text="595200"
+        android:text="@string/kilometrage"
         android:textSize="48sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/kilometrage_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="km"
+        android:text="@string/unite_distance"
         app:layout_constraintEnd_toEndOf="@+id/kilometrage"
         app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="@+id/kilometrage"
         app:layout_constraintTop_toBottomOf="@+id/kilometrage" />
 
     <TextView
-        android:id="@+id/prix_mensuel"
+        android:id="@+id/moy_conso"
         android:layout_width="wrap_content"
         android:layout_height="63dp"
         android:layout_marginEnd="16dp"
-        android:text="120€"
+        android:text="120"
         android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+        app:layout_constraintTop_toTopOf="@+id/kilometrage" />
 
     <TextView
         android:id="@+id/prix_mensuel_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="par mois"
-        app:layout_constraintEnd_toEndOf="@+id/prix_mensuel"
-        app:layout_constraintStart_toStartOf="@+id/prix_mensuel"
-        app:layout_constraintTop_toBottomOf="@+id/prix_mensuel" />
+        android:text="@string/unit_conso"
+        app:layout_constraintEnd_toEndOf="@+id/moy_conso"
+        app:layout_constraintStart_toStartOf="@+id/moy_conso"
+        app:layout_constraintTop_toBottomOf="@+id/moy_conso" />
 
     <Spinner
         android:id="@+id/vehicule_selector"
@@ -58,10 +58,8 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/plein_list"
         android:layout_width="381dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginBottom="26dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vehicule_selector" />
@@ -73,5 +71,14 @@
         android:text="settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add_plein_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/add"
+        app:layout_constraintEnd_toEndOf="@+id/plein_list"
+        app:layout_constraintStart_toStartOf="@+id/plein_list"
+        app:layout_constraintTop_toBottomOf="@+id/plein_list" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

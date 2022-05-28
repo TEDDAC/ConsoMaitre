@@ -28,6 +28,9 @@ public class PleinAdaptater extends RecyclerView.Adapter<PleinAdaptater.ViewHold
                 @Override
                 public void onClick(View view) {
                     Intent intent = new Intent(view.getContext(), PleinEditActivity.class);
+                    intent.putExtra("position_plein",getAdapterPosition());
+                    int positionVehicule = Manager.getInstance().getVehicules().indexOf(((MainActivity)(view.getContext())).getCurrent());
+                    intent.putExtra("position_vehicule",positionVehicule);
                     view.getContext().startActivity(intent);
                 }
             });

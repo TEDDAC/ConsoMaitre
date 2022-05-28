@@ -2,7 +2,10 @@ package model;
 
 import androidx.annotation.NonNull;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class Manager {
     public static Manager instanceDeClasse;
@@ -13,14 +16,12 @@ public class Manager {
     }
 
     public static Manager getInstance(){
-        if(instanceDeClasse == null)
+        if(!isInstantiated())
             instanceDeClasse = new Manager();
         return instanceDeClasse;
     }
 
-    public ArrayList<Vehicule> getVehicules() {
-        return vehicules;
-    }
+    public ArrayList<Vehicule> getVehicules() { return vehicules; }
 
     public void setVehicules(ArrayList<Vehicule> vehicules) {
         this.vehicules = vehicules;
@@ -31,9 +32,13 @@ public class Manager {
     public String toString() {
         String string = new String();
         string = "===========\n";
-        for (Vehicule current : vehicules){
+        for (Vehicule current : getVehicules()){
             string = string + "\n" + current.toString();
         }
         return string;
+    }
+
+    public static boolean isInstantiated(){
+        return instanceDeClasse != null;
     }
 }

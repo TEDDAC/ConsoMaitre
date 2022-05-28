@@ -20,6 +20,7 @@ public class Vehicule {
     }
 
     public ArrayList<Plein> getPleins() {
+        pleins.sort((plein, t1) -> Integer.compare(t1.getKilometrage(), plein.getKilometrage()));
         return pleins;
     }
 
@@ -40,13 +41,22 @@ public class Vehicule {
     public String toString() {
         String string = new String();
         string = "----\nNom: " + this.nom + " > " + pleins.size() + " pleins\n";
-        for(Plein current: pleins){
+        for(Plein current: getPleins()){
             string = string + "\t" + current + "\n";
         }
         return string;
     }
 
     public int getKilometrage(){
+        if(getPleins().size() <= 0)
+            return 0;
         return Collections.max(pleins).getKilometrage();
+    }
+
+    public float getConsoMoy(){
+        ArrayList<Plein> pleinsTraitement = getPleins();
+        if(pleinsTraitement.size() < 2)
+            return 0;
+        return 100 * pleinsTraitement.get(0).getQuantite() / (pleinsTraitement.get(0).getKilometrage() - pleinsTraitement.get(1).getKilometrage());
     }
 }
